@@ -1,0 +1,39 @@
+1.Covariance and correlation 
+Children of three ages are asked to indicate their preference for three photographs of adults. Do the data suggest that there is a significant relationship between age and photograph preference? What is wrong with this study?
+
+                                                                        Photograph:
+                         Age of child               A                      B                      C
+         				   5-6 years:      18                     22                     20
+
+                                    7-8 years:         2                    28                     40
+
+                                    9-10 years:     20                     10                     40
+
+1.	Use cov() to calculate the sample covariance between B  and  C.
+2.	Use another call to cov() to calculate the sample covariance matrix for the preferences.
+3.	Use cor() to calculate the sample correlation between B and C.
+4.	Use another call to cor() to calculate the sample correlation matrix for the preferences.
+
+
+# Create a matrix for the data
+data <- matrix(c(18, 2, 20, 22, 28, 10, 20, 40, 40), nrow = 3, byrow = TRUE)
+rownames(data) <- c("5-6 years", "7-8 years", "9-10 years")
+colnames(data) <- c("A", "B", "C")
+
+# Calculate covariance between B and C
+cov_bc <- cov(data[, "B"], data[, "C"])
+print(paste("Covariance between B and C:", cov_bc))
+
+# Calculate sample covariance matrix for the preferences
+cov_matrix <- cov(data)
+print("Sample Covariance Matrix:")
+print(cov_matrix)
+
+# Calculate correlation between B and C
+cor_bc <- cor(data[, "B"], data[, "C"])
+print(paste("Correlation between B and C:", cor_bc))
+
+# Calculate sample correlation matrix for the preferences
+cor_matrix <- cor(data)
+print("Sample Correlation Matrix:")
+print(cor_matrix)
